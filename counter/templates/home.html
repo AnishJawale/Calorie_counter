@@ -15,6 +15,7 @@
     <title>Foodie Calorie Finder</title>
 </head>
 <body>
+    <a href="{% url 'database_view' %}">View Food Items</a>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
@@ -72,7 +73,7 @@
                     </ul>
                 </div>
                 <div class="col-md-6 mb-5">
-                    <h4 class="mt-3 mb-4">To burn {{ api.0.calories }} calories you will have to</h4>
+                    <h4 class="mt-3 mb-4">To burn {{ api.0.calories  }} calories you will have to</h4>
                     <div class="d-flex align-items-center mb-5">
                         <div class="flex-shrink-0">
                             <img src="{% static 'images/running.png' %}" alt="...">
@@ -126,7 +127,7 @@
     const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['carbohydrates', 'Cholesterol', 'Saturated fat', 'Total Fat', 'Fiber Content', 'Potassium', 'Protein', 'Sodium', 'Sugar'],
+            labels: ['carbohydrates', 'Cholesterol', 'Saturated fat', 'Total Fat', 'Fiber Content', 'Potassium',  'Sodium', 'Sugar'],
             datasets: [{
                 label: 'Nutritional values of {{ api.0.name | capfirst }}',
                 data: [
@@ -136,7 +137,6 @@
                     {{ api.0.fat_saturated_g }},
                     {{ api.0.fat_total_g }},
                     {{ api.0.potassium_mg }},
-                    {{ api.0.protein_g }},
                     {{ api.0.sodium_mg }},
                     {{ api.0.sugar_g }},
                 ],
